@@ -24,21 +24,21 @@ module.exports = (src: DFB.IME_Dictionary[], type: string, dist?: string) => {
       const filename = ext === '.txt' ? base : path.join(base, './dict--win.txt');
       const filePath = path.join(dir, filename);
 
-      return write(windows,, src, filePath);
+      return write(windows, src, filePath);
     }
 
     case 'winGoogle': {
       const filename = ext === '.txt' ? base : path.join(base, './dict--win-google.txt');
       const filePath = path.join(dir, filename);
 
-      return write(windowsGoogle,, src, filePath);
+      return write(windowsGoogle, src, filePath);
     }
 
     case 'mac': {
       const filename = ext === '.txt' ? base : path.join(base, './dict--macos.txt');
       const filePath = path.join(dir, filename);
 
-      return write(macos,, src, filePath);
+      return write(macos, src, filePath);
     }
   }
 
