@@ -5,5 +5,6 @@ declare namespace DFM {
     output: string,
     type?: string,
   };
+  export type Dict = string | Buffer;
   export type Format = [string, string, string];
 }
