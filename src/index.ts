@@ -6,15 +6,16 @@ import windows from './modules/windows';
 import windowsGoogle from './modules/windows--google';
 
 module.exports = (src: DFB.IME_Dictionary[], type: string, dist?: string) => {
-  const {dir, base, ext} = path.parse(dist || __dirname);
+  const {dir, base, ext} = path.parse(dist || process.cwd());
   const write = async (cb: DFB.WriteFunction, fp: string): Promise<string> => {
-    const {dir} = path.parse(fp);
+    const {root} = path.parse(fp);
+    const target = root === '' ? path.join(process.cwd(), fp) : fp;
 
-    await fs.mkdir(dir, {
+    await fs.mkdir(path.parse(target).dir, {
       recursive: true,
     });
 
-    return cb(src, fp);
+    return cb(src, target);
   };
 
   switch (type) {
