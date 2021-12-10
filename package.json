@@ -46,6 +46,7 @@
     "build:prod": "webpack --mode=production --node-env=production",
     "prebuild": "node clean",
     "preinstall": "git config commit.template .gitmessage",
+    "prepublishOnly": "npm run build",
     "watch": "webpack --watch"
   },
   "typings": "@types/index.d.ts"
