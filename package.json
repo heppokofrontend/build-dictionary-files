@@ -49,6 +49,7 @@
     "prebuild": "node clean",
     "preinstall": "git config commit.template .gitmessage",
     "prepublishOnly": "npm run build",
+    "test": "echo \"test\"",
     "watch": "webpack --watch"
   },
   "typings": "@types/index.d.ts"
