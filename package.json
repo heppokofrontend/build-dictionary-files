@@ -26,7 +26,14 @@
     "types"
   ],
   "homepage": "https://github.com/heppokofrontend/dictionary-files-build#readme",
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "dictionaries",
+    "dictionary",
+    "google-ime",
+    "ime",
+    "microsoft-ime"
+  ],
   "license": "MIT",
   "main": "lib/index.min.js",
   "repository": {
