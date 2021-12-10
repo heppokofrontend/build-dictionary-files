@@ -1,4 +1,5 @@
 import fs from 'fs';
+import {format} from '../utils/format';
 
 /**
  * Windows10 GoogleIME向け辞書データの書き出し
@@ -14,12 +15,10 @@ export default (data: DFB.IME_Dictionary[], dist: string) => {
    */
   const replacer = (s: string) => String.fromCharCode(s.charCodeAt(0) + 0x60);
   const TSV = data.map(item => {
-    const list: DFB.Format = [
-      // GoogleIME用に読み仮名をカタカナに変換する
-      item.input.replace(/[ぁ-ん]/g, replacer) || 'かな文字',
-      item.output || '単語',
-      item.type || '名詞',
-    ];
+    // GoogleIME用に読み仮名をカタカナに変換する
+    item.input = item.input?.replace(/[ぁ-ん]/g, replacer);
+
+    const list: DFB.Format = format(item, 'win');
 
     return list.join('\t');
   }).join('\r\n');

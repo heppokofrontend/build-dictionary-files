@@ -1,4 +1,5 @@
 import fs from 'fs';
+import {format} from '../utils/format';
 
 /**
  * Windows10標準IME向け辞書データの書き出し
@@ -8,11 +9,7 @@ import fs from 'fs';
  */
 export default (data: DFB.IME_Dictionary[], dist: string) => {
   const TSV = data.map(item => {
-    const list: DFB.Format = [
-      item.input || 'かな文字',
-      item.output || '単語',
-      item.type || '名詞',
-    ];
+    const list: DFB.Format = format(item, 'win');
 
     return list.join('\t');
   }).join('\n');
