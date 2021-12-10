@@ -1,4 +1,44 @@
 #!/usr/bin/env node
 'use strict';
 
-require("../lib/index.min")();
+const fs = require('fs/promises');
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
+const dfb = require('../lib/index.min');
+
+(async () => {
+  const argv = await yargs(hideBin(process.argv)).option('dist', {
+    type: 'string',
+    description: '出力先',
+  }).option('win', {
+    type: 'boolean',
+    description: 'Windows10標準IME向け辞書データの書き出し',
+  }).option('winGoogle', {
+    type: 'boolean',
+    description: 'Windows10 GoogleIME向け辞書データの書き出し',
+  }).option('mac', {
+    type: 'boolean',
+    description: 'macOS向け辞書データの書き出し',
+  }).argv;
+  const data = JSON.parse(
+    typeof argv._[0] === 'string' && await fs.readFile(argv._[0], {
+      encoding: 'utf-8',
+    }) || '[]'
+  );
+
+  if (!Array.isArray(data)) {
+    throw new Error("JSON format is invalid.");
+  }
+
+  if (argv.win) {
+    dfb(data, 'win', argv.dist);
+  }
+
+  if (argv.winGoogle) {
+    dfb(data, 'winGoogle', argv.dist);
+  }
+
+  if (argv.mac) {
+    dfb(data, 'mac', argv.dist);
+  }
+})();

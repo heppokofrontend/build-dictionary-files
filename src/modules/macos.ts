@@ -17,4 +17,6 @@ export default (data: DFB.IME_Dictionary[], dist: string = './dict--macos.txt') 
   }).join('\n');
 
   fs.writeFileSync(dist, CSV);
+
+  return CSV;
 };

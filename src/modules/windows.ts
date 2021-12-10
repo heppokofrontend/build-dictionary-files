@@ -20,4 +20,6 @@ export default (data: DFB.IME_Dictionary[], dist: string = './dict--win.txt') =>
     dist,
     Buffer.from(`\ufeff${TSV}`, 'utf16le'),
   );
+
+  return TSV;
 };

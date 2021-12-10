@@ -24,4 +24,6 @@ export default (data: DFB.IME_Dictionary[], dist: string = './dict--win-google.t
   }).join('\r\n');
 
   fs.writeFileSync(dist, TSV);
+
+  return TSV;
 };
