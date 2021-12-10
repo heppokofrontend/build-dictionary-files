@@ -35,7 +35,7 @@ const dfb = require('../lib/index.min');
   }
 
   if (argv.winGoogle) {
-    dfb(data, 'winGoogle', argv.dist);
+    dfb(data, 'win-google', argv.dist);
   }
 
   if (argv.mac) {
