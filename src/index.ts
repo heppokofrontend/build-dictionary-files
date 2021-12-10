@@ -8,6 +8,7 @@ const sep = {
   win: '\t',
   mac: ',',
 }
+
 /**
  * 書き出し
  * @param dict - 実際に書き出すテキストデータ
