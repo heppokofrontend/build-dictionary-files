@@ -16,8 +16,8 @@ export default (data: DFB.IME_Dictionary[], dist: string) => {
   const TSV = data.map(item => {
     const list: DFB.Format = [
       // GoogleIME用に読み仮名をカタカナに変換する
-      item.input.replace(/[ぁ-ん]/g, replacer),
-      item.output,
+      item.input.replace(/[ぁ-ん]/g, replacer) || 'かな文字',
+      item.output || '単語',
       item.type || '名詞',
     ];
 

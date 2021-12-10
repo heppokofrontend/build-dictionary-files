@@ -9,8 +9,8 @@ import fs from 'fs';
 export default (data: DFB.IME_Dictionary[], dist: string) => {
   const TSV = data.map(item => {
     const list: DFB.Format = [
-      item.input,
-      item.output,
+      item.input || 'かな文字',
+      item.output || '単語',
       item.type || '名詞',
     ];
 
