@@ -36,22 +36,15 @@ const write = async (dict: string, fp: string) => {
 const replacer = (s: string) => String.fromCharCode(s.charCodeAt(0) + 0x60);
 
 /**
- * dictionary-file-maker
+ * ファイルの中身を作成します
  * @param src - 辞書データオブジェクト
  * @param type - 書き出すファイルのフォーマット
- * @param dist - 書き出し先のファイルパス
- * @returns　実際に書き出すテキストデータ
+ * @returns - 辞書データとして書き出すテキスト
  */
-export const dictMaker = async (
-  src: DFM.IME_Dictionary[],
-  type: 'win' | 'win-google' | 'mac',
-  dist?: string
-) => {
-  const {dir, base, ext} = path.parse(dist || process.cwd());
-  const filename = ext === '.txt' ? base : path.join(base, `./dict--${type}.txt`);
-  const filePath = path.join(dir, filename);
+const makeFileBody = (src: DFM.IME_Dictionary[], type: DFM.IME_Type) => {
   const platform = type.startsWith('win') ? 'win' : 'mac';
-  const data = src.map(item => {
+
+  return src.map(item => {
     // GoogleIME用に読み仮名をカタカナに変換する
     if (type === 'win-google') {
       item.input = item.input?.replace(/[ぁ-ん]/g, replacer);
@@ -61,6 +54,24 @@ export const dictMaker = async (
 
     return list.join(sep[platform]);
   }).join(type === 'win-google' ? '\r\n' : '\n');
+};
+
+/**
+ * dictionary-file-maker
+ * @param src - 辞書データオブジェクト
+ * @param type - 書き出すファイルのフォーマット
+ * @param dist - 書き出し先のファイルパス
+ * @returns　実際に書き出すテキストデータ
+ */
+export const dictMaker = async (
+  src: DFM.IME_Dictionary[],
+  type: DFM.IME_Type,
+  dist?: string
+) => {
+  const {dir, base, ext} = path.parse(dist || process.cwd());
+  const filename = ext === '.txt' ? base : path.join(base, `./dict--${type}.txt`);
+  const filePath = path.join(dir, filename);
+  const data = makeFileBody(src, type);
 
   await write(data, filePath);
 
