@@ -20,25 +20,29 @@ const {dictMaker} = require('../lib/index.min');
     type: 'boolean',
     description: 'macOS向け辞書データの書き出し',
   }).argv;
-  const data = JSON.parse(
-    typeof argv._[0] === 'string' && await fs.readFile(argv._[0], {
-      encoding: 'utf-8',
-    }) || '[]'
-  );
+  const data = typeof argv._[0] === 'string' && await fs.readFile(argv._[0], {
+    encoding: 'utf-8',
+  }) || '[]';
+  const getData = () => {
+    const result = JSON.parse(data);
 
-  if (!Array.isArray(data)) {
-    throw new Error("JSON format is invalid.");
+    if (!Array.isArray(result)) {
+      throw new Error("JSON format is invalid.");
+    }
+
+    return result;
   }
 
+
   if (argv.win) {
-    dictMaker(data, 'win', argv.dist);
+    dictMaker(getData(), 'win', argv.dist);
   }
 
   if (argv.winGoogle) {
-    dictMaker(data, 'win-google', argv.dist);
+    dictMaker(getData(), 'win-google', argv.dist);
   }
 
   if (argv.mac) {
-    dictMaker(data, 'mac', argv.dist);
+    dictMaker(getData(), 'mac', argv.dist);
   }
 })();
