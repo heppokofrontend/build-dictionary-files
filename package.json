@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "heppokofrontend",
   "bin": {
-    "dict-build": "./bin/dict-build"
+    "dict-maker": "./bin/dict-maker"
   },
   "bugs": {
     "url": "https://github.com/heppokofrontend/dictionary-files-build/issues"

@@ -4,7 +4,7 @@
 const fs = require('fs/promises');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-const dfb = require('../lib/index.min');
+const dictMaker = require('../lib/index.min');
 
 (async () => {
   const argv = await yargs(hideBin(process.argv)).option('dist', {
@@ -31,14 +31,14 @@ const dfb = require('../lib/index.min');
   }
 
   if (argv.win) {
-    dfb(data, 'win', argv.dist);
+    dictMaker(data, 'win', argv.dist);
   }
 
   if (argv.winGoogle) {
-    dfb(data, 'win-google', argv.dist);
+    dictMaker(data, 'win-google', argv.dist);
   }
 
   if (argv.mac) {
-    dfb(data, 'mac', argv.dist);
+    dictMaker(data, 'mac', argv.dist);
   }
 })();
