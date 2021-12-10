@@ -6,4 +6,5 @@ declare namespace DFB {
   };
 
   export type Format = [string, string, string];
+  export type WriteFunction = (a: DFB.IME_Dictionary[] , b: string) => string;
 }

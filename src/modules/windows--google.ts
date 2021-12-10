@@ -2,10 +2,11 @@ import fs from 'fs';
 
 /**
  * Windows10 GoogleIME向け辞書データの書き出し
+ * @type {DFB.WriteFunction}
  * @param data - 辞書データ
  * @param dist - 保存するパス
  */
-export default (data: DFB.IME_Dictionary[], dist: string = './dict--win-google.txt') => {
+export default (data: DFB.IME_Dictionary[], dist: string) => {
   /**
    * String.prototype.replaceの第２引数
    * @param ｓ - ひらがな１文字
