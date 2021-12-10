@@ -43,7 +43,7 @@ const replacer = (s: string) => String.fromCharCode(s.charCodeAt(0) + 0x60);
  * @returns　実際に書き出すテキストデータ
  */
 module.exports = async (
-  src: DFB.IME_Dictionary[],
+  src: DFM.IME_Dictionary[],
   type: 'win' | 'win-google' | 'mac',
   dist?: string
 ) => {
@@ -57,7 +57,7 @@ module.exports = async (
       item.input = item.input?.replace(/[ぁ-ん]/g, replacer);
     }
 
-    const list: DFB.Format = format(item, platform);
+    const list: DFM.Format = format(item, platform);
 
     return list.join(sep[platform]);
   }).join(type === 'win-google' ? '\r\n' : '\n');
