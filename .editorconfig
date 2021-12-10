@@ -10,8 +10,5 @@ indent_style = space
 [*.js]
 insert_final_newline = false
 
-[*.txt]
+[dictionary/dict--win-google.txt]
 end_of_line = crlf
-
-[dictionary/mac/**.txt]
-end_of_line = lf
