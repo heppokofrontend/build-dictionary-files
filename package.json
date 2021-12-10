@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "heppokofrontend",
   "bin": {
-    "dfb": "bin/cli.js"
+    "dfb": "./bin/dfb"
   },
   "bugs": {
     "url": "https://github.com/heppokofrontend/dictionary-files-build/issues"
