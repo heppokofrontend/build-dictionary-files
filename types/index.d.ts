@@ -1,7 +1,9 @@
 declare namespace DFB {
   export type IME_Dictionary = {
-    yomi: string,
-    kaki: string,
+    input: string,
+    output: string,
     type?: string,
   };
+
+  export type Format = [string, string, string];
 }
