@@ -1,0 +1,18 @@
+
+
+# ==== Emojis ====
+# ✨  :sparkles: A new feature（新機能）
+# 🐛  :bug: A bug fix（バグ修正）
+# 📚  :books: Documentation only changes（ドキュメント更新）
+# ♻️  :recycle: A code change that neither fixes a bug nor adds a feature （リファクタリング）
+# 🚿  :shower: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)（コードの処理が変わらない変更）
+# 🐎  :racehorse: A code change that improves performance（パフォーマンスチューニング）
+# 🚨  :rotating_light: Adding missing or correcting existing tests（テストコード）
+# 🔧  :wrench: Changes to the build process or package.json, etc.（開発環境）
+# ⚡️  :zap: Other updates（その他の更新）
+# 🗑  :wastebasket: Remove（削除）
+
+# ==== Commit comment example ====
+# :zap: Subject text
+#
+# Commit comment body...

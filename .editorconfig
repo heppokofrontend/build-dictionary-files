@@ -1,0 +1,17 @@
+root = true
+
+[*]
+
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+
+[*.js]
+insert_final_newline = false
+
+[*.txt]
+end_of_line = crlf
+
+[dictionary/mac/**.txt]
+end_of_line = lf

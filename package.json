@@ -1,0 +1,40 @@
+{
+  "name": "disctionary-files-build",
+  "description": "Build to class platform-compatible dictionary data text file.",
+  "version": "1.0.0",
+  "author": "heppokofrontend",
+  "bin": {
+    "dfb": "bin/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/heppokofrontend/dictionary-files-build/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^15.14.9",
+    "@types/yargs": "^17.0.7",
+    "@webpack-cli/generators": "^2.4.1",
+    "terser": "^5.10.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.3",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "yargs": "^17.3.0"
+  },
+  "homepage": "https://github.com/heppokofrontend/dictionary-files-build#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heppokofrontend/dictionary-files-build.git"
+  },
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "prebuild": "node clean",
+    "preinstall": "git config commit.template .gitmessage",
+    "watch": "webpack --watch"
+  },
+  "typings": "@types/index.d.ts"
+}
