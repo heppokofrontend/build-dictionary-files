@@ -54,6 +54,7 @@
     "prebuild": "node clean",
     "preinstall": "git config commit.template .gitmessage",
     "prepublishOnly": "npm run build",
+    "sample": "dict-maker sample/mock.json --mac --win --winGoogle --dist ./dictionary",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "watch": "webpack --watch"

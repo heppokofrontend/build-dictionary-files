@@ -1,0 +1,11 @@
+[
+  {
+    "input": "ほげほげ",
+    "output": "Hello World"
+  },
+  {
+    "input": "やまだ",
+    "output": "山田",
+    "type": "人名"
+  }
+]
