@@ -36,7 +36,7 @@ const write = async (dict: string, fp: string) => {
 const replacer = (s: string) => String.fromCharCode(s.charCodeAt(0) + 0x60);
 
 /**
- * Build-dictionary-files
+ * dictionary-file-maker
  * @param src - 辞書データオブジェクト
  * @param type - 書き出すファイルのフォーマット
  * @param dist - 書き出し先のファイルパス
