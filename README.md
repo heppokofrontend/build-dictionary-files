@@ -43,6 +43,13 @@ const obj = [
 dictMaker(obj, 'win', './result.txt'); // The text file is writen.
 ```
 
+:warning: The "~" varies depending on the OS.
+
+```ts
+const windows = json.replace(/〜/g, '～');
+const macOS = json.replace(/～/g, '〜');
+```
+
 ## Syntax
 
 ```ts
