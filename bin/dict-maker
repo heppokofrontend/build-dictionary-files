@@ -7,7 +7,8 @@ const { hideBin } = require('yargs/helpers');
 const { dictMaker } = require('../lib/index');
 
 (async () => {
-  const argv = await yargs(hideBin(process.argv)).option('dist', {
+  const argv = await yargs(hideBin(process.argv)).option('out', {
+    alias: 'o',
     type: 'string',
     description: '出力先',
   }).option('win', {
@@ -35,14 +36,14 @@ const { dictMaker } = require('../lib/index');
 
 
   if (argv.win) {
-    dictMaker(getData(), 'win', argv.dist);
+    dictMaker(getData(), 'win', argv.out);
   }
 
   if (argv.winGoogle) {
-    dictMaker(getData(), 'win-google', argv.dist);
+    dictMaker(getData(), 'win-google', argv.out);
   }
 
   if (argv.mac) {
-    dictMaker(getData(), 'mac', argv.dist);
+    dictMaker(getData(), 'mac', argv.out);
   }
 })();
