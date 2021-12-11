@@ -1,7 +1,7 @@
 {
   "name": "@heppokofrontend/dictionary-file-maker",
   "description": "Build to class platform-compatible dictionary data text file.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "heppokofrontend",
   "bin": {
     "dict-maker": "./bin/dict-maker"
