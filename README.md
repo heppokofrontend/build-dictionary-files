@@ -17,7 +17,7 @@ See these instructions on how to use the text files exported by this tool.
 Installation:
 
 ```shell
-npm install --save @heppokofrontend/dictionary-file-maker
+npm install --save-dev @heppokofrontend/dictionary-file-maker
 ```
 
 Example: 
