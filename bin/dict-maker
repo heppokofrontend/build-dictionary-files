@@ -4,7 +4,7 @@
 const fs = require('fs/promises');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-const { dictMaker } = require('../lib/index.min');
+const { dictMaker } = require('../lib/index');
 
 (async () => {
   const argv = await yargs(hideBin(process.argv)).option('dist', {

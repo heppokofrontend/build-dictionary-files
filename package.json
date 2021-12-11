@@ -42,22 +42,20 @@
     "microsoft-ime"
   ],
   "license": "MIT",
-  "main": "lib/index.min.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heppokofrontend/dictionary-files-build.git"
   },
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
+    "build": "tsc --outdir ./lib",
     "prebuild": "node clean",
     "preinstall": "git config commit.template .gitmessage",
     "prepublishOnly": "npm run build",
     "sample": "dict-maker sample/mock.json --mac --win --winGoogle --dist ./dictionary",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
-    "watch": "webpack --watch"
+    "watch": "tsc --outdir ./lib --watch"
   },
   "typings": "@types/index.d.ts"
 }

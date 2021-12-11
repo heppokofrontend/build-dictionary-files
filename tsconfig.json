@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     "allowSyntheticDefaultImports": true,
     "module": "CommonJS",
     "target": "ESNext",
     "strict": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true
   },
+  "exclude": [
+    "src/**/*.test.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "types/**/*.ts"
