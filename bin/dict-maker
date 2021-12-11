@@ -10,16 +10,16 @@ const { dictMaker } = require('../lib/index');
   const argv = await yargs(hideBin(process.argv)).option('out', {
     alias: 'o',
     type: 'string',
-    description: '出力先',
+    description: 'Specify an output folder for dictionary files.',
   }).option('win', {
     type: 'boolean',
-    description: 'Windows10標準IME向け辞書データの書き出し',
+    description: 'Enable the export of dictionary data for Windows 10 standard IME.',
   }).option('winGoogle', {
     type: 'boolean',
-    description: 'Windows10 GoogleIME向け辞書データの書き出し',
+    description: 'Enable the export of dictionary data for Google IME on Windows 10.',
   }).option('mac', {
     type: 'boolean',
-    description: 'macOS向け辞書データの書き出し',
+    description: 'Enable the export of dictionary data for macOS IME',
   }).argv;
   const data = typeof argv._[0] === 'string' && await fs.readFile(argv._[0], {
     encoding: 'utf-8',
