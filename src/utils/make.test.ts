@@ -1,7 +1,9 @@
 import {make} from './make';
-import mock from '../../sample/mock.json';
+import sampleJson from '../../sample/mock.json';
 
 describe('Make', () => {
+  const mock = sampleJson as DFM.IME_Dictionary[];
+
   test('macOS', () => {
     const result = make(mock, 'mac')
 
