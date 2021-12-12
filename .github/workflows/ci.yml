@@ -28,7 +28,7 @@ jobs:
     - run: npm test
     - uses: paambaati/codeclimate-action@v2.7.5
       env:
-        CC_TEST_REPORTER_ID: 8e9f53ed1c146b9877ea5181aa317c60fb1faf6fa3d5b124ba121aead724b5b3
+        CC_TEST_REPORTER_ID: 72695e617fccda44b14870493fa5a9ec39c091c8e3b06c6e90e46c87c241e62b
       with:
         coverageLocations: |
           ${{github.workspace}}/coverage/lcov.info:lcov
