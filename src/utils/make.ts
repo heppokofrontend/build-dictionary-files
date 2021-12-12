@@ -14,6 +14,21 @@ const sep = {
 const replacer = (s: string) => String.fromCharCode(s.charCodeAt(0) + 0x60);
 
 /**
+ * 簡易的なdeepCopy
+ * @param src - 辞書データオブジェクトリスト
+ * @returns - JSONを利用してコピーした新しいリスト
+ */
+const deepCopy = <T = any[]>(src: any[]): T[] => {
+  const result = JSON.parse(JSON.stringify(src));
+
+  if (!Array.isArray(result)) {
+    throw new Error("Object format is invalid.");
+  }
+
+  return result;
+};
+
+/**
  * ファイルの中身を作成します
  * @param src - 辞書データオブジェクト
  * @param type - 書き出すファイルのフォーマット
@@ -21,15 +36,7 @@ const replacer = (s: string) => String.fromCharCode(s.charCodeAt(0) + 0x60);
  */
 export const make = (src: DFM.IME_Dictionary[], type: DFM.IME_Type) => {
   /** Copy the object as a new one  */
-  const _src = (() => {
-    const result = JSON.parse(JSON.stringify(src));
-
-    if (!Array.isArray(result)) {
-      throw new Error("Object format is invalid.");
-    }
-
-    return result as DFM.IME_Dictionary[];
-  })();
+  const _src = deepCopy<DFM.IME_Dictionary>(src);
   const platform = type.startsWith('win') ? 'win' : 'mac';
   const data = _src.map(item => {
     // GoogleIME用に読み仮名をカタカナに変換する
