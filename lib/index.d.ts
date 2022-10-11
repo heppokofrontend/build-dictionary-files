@@ -9,4 +9,4 @@ import { make } from './utils/make';
  * @returns　実際に書き出すテキストデータ
  */
 declare const dictMaker: (src: DFM.IME_Dictionary[], type: DFM.IME_Type, dist?: string | undefined) => Promise<string | Buffer>;
-export { dictMaker, make, };
+export { dictMaker, make };
