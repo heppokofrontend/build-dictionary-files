@@ -48,7 +48,7 @@
     "url": "git+https://github.com/heppokofrontend/dictionary-files-build.git"
   },
   "scripts": {
-    "build": "tsc --outdir ./lib",
+    "build": "tsc -d --outdir ./lib",
     "prebuild": "node clean",
     "preinstall": "git config commit.template .gitmessage",
     "prepublishOnly": "npm run build",

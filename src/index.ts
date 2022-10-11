@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import path from 'path';
 import fs from 'fs/promises';
-import {make} from './utils/make';
+import { make } from './utils/make';
 
 /**
  * 書き出し
@@ -9,7 +9,7 @@ import {make} from './utils/make';
  * @param fp - 書き出し先のファイルパス
  */
 const write = async (data: DFM.Dict, fp: string) => {
-  const {root} = path.parse(fp);
+  const { root } = path.parse(fp);
   const target = root === '' ? path.join(process.cwd(), fp) : fp;
 
   await fs.mkdir(path.parse(target).dir, {
@@ -26,12 +26,8 @@ const write = async (data: DFM.Dict, fp: string) => {
  * @param dist - 書き出し先のファイルパス
  * @returns　実際に書き出すテキストデータ
  */
-const dictMaker = async (
-  src: DFM.IME_Dictionary[],
-  type: DFM.IME_Type,
-  dist?: string
-) => {
-  const {dir, base, ext} = path.parse(dist || process.cwd());
+const dictMaker = async (src: DFM.IME_Dictionary[], type: DFM.IME_Type, dist?: string) => {
+  const { dir, base, ext } = path.parse(dist || process.cwd());
   const filename = ext === '.txt' ? base : path.join(base, `./dict--${type}.txt`);
   const filePath = path.join(dir, filename);
   const data = make(src, type);
@@ -39,9 +35,6 @@ const dictMaker = async (
   await write(data, filePath);
 
   return data;
-}
-
-export {
-  dictMaker,
-  make,
 };
+
+export { dictMaker, make };
